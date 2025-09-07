@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import ThemeToggle from './ThemeToggle';
+import { NavLink } from 'react-router-dom';
+import ThemeToggle from './Themetoggle.jsx';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
@@ -17,19 +17,23 @@ const Nav = styled.nav`
     margin: 0 1rem;
     color: ${({ theme }) => theme.headerText};
     text-decoration: none;
-
+    &.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
     &:hover {
       text-decoration: underline;
     }
   }
 `;
 
+
 const Header = () => (
   <HeaderContainer>
     <Nav>
-      <Link to="/">Головна</Link>
-      <Link to="/contacts">Контакти</Link>
-      <Link to="/about">Про мене</Link>
+      <NavLink to="/" end>Головна</NavLink>
+      <NavLink to="/contacts">Контакти</NavLink>
+      <NavLink to="/about">Про мене</NavLink>
     </Nav>
     <ThemeToggle />
   </HeaderContainer>
